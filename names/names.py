@@ -11,7 +11,7 @@ f = open('names_2.txt', 'r')
 names_2 = f.read().split("\n")  # List containing 10000 names
 f.close()
 
-duplicates = []  # Return the list of duplicates in this data structure
+duplicates = [i for i in (set(names_1).intersection(names_2))]  # Return the list of duplicates in this data structure
 
 # Replace the nested for loops below with your improvements
 # O(n^c)
