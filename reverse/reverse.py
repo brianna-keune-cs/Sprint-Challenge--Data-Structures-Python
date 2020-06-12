@@ -39,4 +39,19 @@ class LinkedList:
         return False
 
     def reverse_list(self, node, prev):
-        pass
+        # 1 -> 2 -> 3
+        # 3 -> 2 -> 1
+        # current node will be node
+        # the wanted next node is prev
+        # must use recursion
+        # if I am currently on node 1, it's next value will be 2
+        # which I now want in front of 1, and it's previous node (None) to be it's next value
+        if node is None:
+            # if we reach the end of the original list
+            # set head with last node of original list
+            self.head = prev
+            return
+
+        node_to_swap = node.get_next()
+        node.set_next(prev)
+        self.reverse_list(node_to_swap, node)
